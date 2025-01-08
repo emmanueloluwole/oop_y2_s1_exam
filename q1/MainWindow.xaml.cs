@@ -60,6 +60,7 @@ namespace q1
             //events.Add(e2);
             //events.Add(e3);
 
+
             //add event to the list
             return new List<Event>() { e1, e2 };
         }
@@ -72,9 +73,15 @@ namespace q1
             //tickets.Add(t1);
             //tickets.Add(t2);
             //tickets.Add(t3);
+            //create a list of VIP tickets
+            List<VIPTicket> VIPtickets = new List<VIPTicket>();
+            VIPTicket vt1 = new VIPTicket("Ticket and hotel package", 150m, 100, "Free Drinks", 50m);
+            VIPTicket vt2 = new VIPTicket("Weekend ticket", 2000m, 100, "with camping", 100m);
+            //VIPtickets.Add(vt1);
+            //VIPtickets.Add(vt2);
 
             //add tickets to the list
-            return new List<Ticket>() { t1, t2 };
+            return new List<Ticket>() { t1, t2,vt1,vt2 };
         }
         private List<VIPTicket> GetVIPTickets()
         {

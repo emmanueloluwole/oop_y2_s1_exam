@@ -26,7 +26,8 @@ namespace q1
         //methods
         public override string ToString()
         {
-            return Name + " " + Price + " " + AvailableTickets;
+            return $" {Name} - {Price:C} [Available - {AvailableTickets}]";
+          
         }
 
 

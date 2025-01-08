@@ -20,52 +20,75 @@ namespace q1
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        private List<Event> eventS;
+        //link tio repo
+        //https://github.com/emmanueloluwole/oop_y2_s1_exam.git
+        private List<Event> events;
         private List<Ticket> tickets;
-        private List<VIPTicket> VIPtickets;
+        private List<VIPTicket> vIPtickets;
         public MainWindow()
         {
             InitializeComponent();
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            eventS = GetEvents();
+            events = GetEvents();
+            //displaying the events in the listbox
+            lbxEvents.ItemsSource = events;
+
+
+
+            if (events.Count > 0)
+            {
+                tickets = GetTickets();
+                //displaying the tickets in the listbox
+                lbxTickets.ItemsSource = tickets;
+                vIPtickets = GetVIPTickets();
+             
+            }
+          
+
+
 
         }
         private List<Event> GetEvents()
         {
+            //create a list of events
             List<Event> events = new List<Event>();
-            Event e1 = new Event("Music Event", new DateTime(2021, 12, 12), EventType.Music);
-            Event e2 = new Event("Comedy Event", new DateTime(2021, 12, 13), EventType.Comedy);
-            Event e3 = new Event("Theatre Event", new DateTime(2021, 12, 14), EventType.Theatre);
+            Event e1 = new Event("Oasis croke park", new DateTime(2025, 06, 20), EventType.Music);
+            Event e2 = new Event("Electric Picnic", new DateTime(2025, 08, 20), EventType.Music);
             //events.Add(e1);
             //events.Add(e2);
             //events.Add(e3);
 
-            return new List<Event>() { e1, e2, e3 };
+            //add event to the list
+            return new List<Event>() { e1, e2 };
         }
         private List<Ticket> GetTickets()
         {
+            //create a list of tickets
             List<Ticket> tickets = new List<Ticket>();
             Ticket t1 = new Ticket("Early Bird", 100m, 100);
             Ticket t2 = new Ticket("Platinum", 250m, 100);
             //tickets.Add(t1);
             //tickets.Add(t2);
             //tickets.Add(t3);
+
+            //add tickets to the list
             return new List<Ticket>() { t1, t2 };
         }
         private List<VIPTicket> GetVIPTickets()
         {
+            //create a list of VIP tickets
             List<VIPTicket> VIPtickets = new List<VIPTicket>();
             VIPTicket vt1 = new VIPTicket("Ticket and hotel package", 150m, 100, "Free Drinks", 50m);
             VIPTicket vt2 = new VIPTicket("Weekend ticket", 2000m, 100, "with camping", 100m);
             //VIPtickets.Add(vt1);
             //VIPtickets.Add(vt2);
+
+            //add VIP tickets to the list
             return new List<VIPTicket>() { vt1, vt2 };
         }
 
-
-
+   
     }
 }
